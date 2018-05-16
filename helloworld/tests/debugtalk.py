@@ -2,6 +2,7 @@ import hashlib
 import hmac
 import random
 import string
+import os
 
 SECRET_KEY = "DebugTalk"
 default_request = {
