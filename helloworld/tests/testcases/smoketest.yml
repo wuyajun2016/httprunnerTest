@@ -1,0 +1,13 @@
+- config:
+    name: smoketest
+    request: $default_request
+    
+- test:
+    name: 错误账密登录测试
+    parameters:
+        - userid-password:
+            - ["15068129031", "d448fd027a2bb5a4686e55c8c0bd80681"]
+    api: login($userid, $password)
+    validate:
+    - eq: [status_code, 200]
+    - eq: [content.status, 500]    

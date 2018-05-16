@@ -1,0 +1,20 @@
+- config:
+    name: smoketest
+    parameters:
+        - userid-password:
+            - ["15068129031", "d448fd027a2bb5a4686e55c8c0bd8068"]
+            - ["18757578334", "e693a715e11e67e1de59a7e66c56c3cb"]
+    request: $default_request
+    
+- test:
+    name: 登录测试
+    suite: loginSuite($userid, $password)
+- test:
+    name: 错误账密登录测试
+    variables:
+        - userid: "15068129031"
+        - password: "e693a715e11e67e1de59a7e66c56c3cb"
+    suite: loginSuite($userid, $password)
+    validate:
+        - eq: ["status_code", 404]
+        - eq: ["content.success", false]

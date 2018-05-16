@@ -1,0 +1,14 @@
+- config:
+    name: "suittest"
+    def: loginSuite($userid, $password)
+    request: $default_request
+
+
+- test:
+    name: 获取token
+    api: login($userid, $password)
+    extract:
+    - {token: "token\":\"(.*)\""}    
+- test:
+    name: 获取订单列表
+    api: getOrder($token)    

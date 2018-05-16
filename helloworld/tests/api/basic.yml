@@ -1,0 +1,47 @@
+- api:
+    def: login($userid, $password) 
+    request:
+      url: '/odin/servlet/gate/single'
+      headers: {}
+      method: POST
+      data:
+        simpleAccountService.login: |-
+          {
+            "areaCode" : "86",
+            "password" : "$password",
+            "userid" : $userid,
+            "loginMode" : "1",
+            "role" : 3,
+            "clientInfo" : {
+              "vender" : "APPLE",
+              "appVersion" : "1.0.1.9.2",
+              "osVersion" : "11.2.2",
+              "deviceID" : "00000000-0000-0000-0000-000000000000",
+              "model" : "国行、日版、港行iPhone 7",
+              "sdkVersion" : "",
+              "deviceType" : "2",
+              "publishChannel" : "APPSTORE",
+              "iosToken" : ""
+            }
+          }
+    validate:
+    - eq: [status_code, 200]
+    - eq: [content.status, 200]
+- api:
+    def: getOrder($token)
+    request:
+      url: /odin/servlet/gate/single
+      headers: {token: $token}
+      method: POST
+      data:
+        simpleShipperOrderService.getOrderListByStatus: |-
+          {
+            "pageSize": 10, 
+            "state": 0, 
+            "pageNo": 1
+          }
+    validate:
+    - eq: [status_code, 200]
+    - eq: [headers.Content-Type, application/json;charset=utf-8]
+    - eq: [content.status, 200]
+    - eq: [content.message, '']
