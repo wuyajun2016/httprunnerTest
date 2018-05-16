@@ -19,7 +19,7 @@ def getBaseUrl():
     test_env = os.environ.get("test_env", "TEST")
 
     if test_env == "TEST":
-        return "http://gate1.test.51juban.cn"
+        return "http://gate.test.51juban.cn"
     else:
         return "http://gate.juban.com" 
 
