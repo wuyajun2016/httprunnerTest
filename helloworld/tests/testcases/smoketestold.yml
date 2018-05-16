@@ -2,7 +2,7 @@
     name: smoketest
     parameters:
         - userid-password:
-            - ["18757578334", "e693a715e11e67e1de59a7e66c56c3cb"]
+            - ["18757578334", "16d7a4fca7442dda3ad93c9a726597e4"]
     request: $default_request
     
 - test:
