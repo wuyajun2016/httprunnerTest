@@ -3,7 +3,8 @@
     parameters:
         - userid-password:
             - ["18757578334", "2e8dcf26c9e0af87a33237151bfcb4b7"]
-    request: $default_request
+    request: 
+      base_url: ${getBaseUrl()}
     
 - test:
     name: 登录测试
