@@ -12,6 +12,16 @@ default_request = {
     }
 }
 
+
+def getBaseUrl():
+
+    test_env = os.environ.get("test_env", "TEST")
+
+    if test_env == "TEST":
+        return "http://gate.test.51juban.cn"
+    else:
+        return "http://gate.juban.com" 
+
 def gen_random_string(str_len):
     random_char_list = []
     for _ in range(str_len):
