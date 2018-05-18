@@ -1,8 +1,13 @@
 - config:
     name: "suittest"
     def: loginSuite($userid, $password)
-    request: ${getBaseUrl()}
-
+    request:
+      base_url: ${getBaseUrl()}
+      headers:
+        {
+          Content-Type: "application/x-www-form-urlencoded",
+          user_agent: "Owner/1.0.1.9.2 (iPhone; iOS 11.2.2; Scale/2.00)",
+        }
 
 - test:
     name: 获取token
@@ -11,4 +16,6 @@
     - {token: "token\":\"(.*)\""}    
 - test:
     name: 获取订单列表
-    api: getOrder($token)    
+    api: getOrder($token)
+#    validate:
+#    - eq: ["status_code", 404]

@@ -6,7 +6,6 @@ import os
 
 SECRET_KEY = "DebugTalk"
 default_request = {
-    "base_url": "http://gate.test.51juban.cn",
     "headers": {
         "Content-Type": "application/x-www-form-urlencoded",
         "user_agent": "Owner/1.0.1.9.2 (iPhone; iOS 11.2.2; Scale/2.00)",

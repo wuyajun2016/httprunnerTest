@@ -3,9 +3,23 @@
     parameters:
         - userid-password:
             - ["18757578334", "2e8dcf26c9e0af87a33237151bfcb4b7"]
-    request: 
+    request:
       base_url: ${getBaseUrl()}
-    
+      headers:
+          {
+            Content-Type: "application/x-www-form-urlencoded",
+            user_agent: "Owner/1.0.1.9.2 (iPhone; iOS 11.2.2; Scale/2.00)",
+          }
+
 - test:
     name: 登录测试
     suite: loginSuite($userid, $password)
+- test:
+    name: 错误账号密码
+    variables :
+        - userid : "15068129031"
+        - password : "d448fd027a2bb5a4686e55c8c0bd8068"
+    api: login($userid, $password)
+    validate :
+        - eq: [status_code, 200]
+        - eq: [content.status, 500]
