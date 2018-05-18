@@ -15,7 +15,7 @@ default_request = {
 
 def getBaseUrl():
 
-    test_env = os.environ.get("test_env", "TEST")
+    test_env = os.environ.get("test_env")
 
     if test_env == "TEST":
         print("https://gate.juban.com")
