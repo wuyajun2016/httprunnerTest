@@ -18,9 +18,9 @@ def getBaseUrl():
     test_env = os.environ.get("test_env")
     print("当前环境为：" + str(test_env))
     if test_env == "TEST":
-        return "https://gate.juban.com"
+        return "http://gate.test.51juban.cn"
     else:
-        return "http://gate1.test.51juban.cn"
+        return "https://gate.juban.com"
 
 def gen_random_string(str_len):
     random_char_list = []
