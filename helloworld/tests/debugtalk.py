@@ -20,7 +20,7 @@ def getBaseUrl():
     if test_env == "TEST":
         return "http://gate.test.51juban.cn"
     else:
-        return "http://gate.juban.com" 
+        return "https://gate.juban.com"
 
 def gen_random_string(str_len):
     random_char_list = []
