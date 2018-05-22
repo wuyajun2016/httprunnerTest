@@ -18,9 +18,9 @@
 - test:
     name: 错误账号密码
     variables :
-        - userid : "15068129031"
+        - userid : ${connectPy()}
         - password : "d448fd027a2bb5a4686e55c8c0bd8068"
     api: login($userid, $password)
     validate :
-        - eq: [status_code, 200]
+        - sum_status_code: ["status_code", 200]
         - eq: [content.status, 500]

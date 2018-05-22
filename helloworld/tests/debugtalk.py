@@ -1,3 +1,4 @@
+from tests import connectMysql
 import hashlib
 import hmac
 import random
@@ -21,7 +22,12 @@ def getBaseUrl():
         return "http://gate.test.51juban.cn"
     else:
         return "https://gate.juban.com"
+def sum_status_code(status_code, expect_sum):
 
+    assert expect_sum == status_code
+
+def connectPy():
+    connectMysql.execSQL("SELECT * from status_code")
 def gen_random_string(str_len):
     random_char_list = []
     for _ in range(str_len):
