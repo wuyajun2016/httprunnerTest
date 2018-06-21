@@ -41,7 +41,7 @@
             "pageNo": 1
           }
     validate:
-    - sum_status_code: ["status_code", 200]
+    - sum_status_code: ["status_code"]
     - eq: [headers.Content-Type, application/json;charset=utf-8]
     - eq: [content.status, 200]
     - eq: [content.message, '']
